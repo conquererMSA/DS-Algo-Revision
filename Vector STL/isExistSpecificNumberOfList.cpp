@@ -13,6 +13,7 @@ int main(){
     cin>>num;
     //find iterator return kore
     auto it=find(l.begin(), l.end(),num);
+    //cout<<*it<<endl;
     if(it!=l.end()) cout<<distance(l.begin(), it);
     else cout<<num<< " "<<"does not exist"<<endl;
     /*
