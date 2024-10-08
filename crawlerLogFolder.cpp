@@ -5,7 +5,8 @@ int main() {
     vector<string> logs;
     string input;
     getline(cin, input); 
-    
+    //d1/ x12/ ../ ./ ez/
+    //2
     stringstream ss(input);
     string log;
     while (ss >> log) {
