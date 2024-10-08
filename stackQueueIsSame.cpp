@@ -9,11 +9,7 @@ int main(){
         cin>>x;
         s.push(x);
     }
-    int m;
-    cin>>m;
-    queue<int> q;
-    for(int i=0; i<m; i++){
-        int x;
+    int x;
         cin>>x;
         q.push(x);
     }
@@ -34,4 +30,8 @@ int main(){
     if(ans) cout<<"YES"<<endl;
     else cout<<"NO"<<endl;
     return 0;
-}
+}int m;
+    cin>>m;
+    queue<int> q;
+    for(int i=0; i<m; i++){
+        
