@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 /*
+input:
 9 9
 3
-
 output:
 #########
 #*******#
