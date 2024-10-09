@@ -13,7 +13,6 @@ int main() {
         if (startIndex == string::npos) break;
         sen.replace(startIndex, replaceCount, "CCC"); 
     }
-
     cout << sen << endl;
     return 0;
 }
