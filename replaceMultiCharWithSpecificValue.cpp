@@ -2,6 +2,7 @@
 using namespace std;
 //input:amarXXXsonar banXXXgla desXXXamar bizoyXXX24
 //output: amarCCCsonar banCCCgla desCCCamar bizoyCCC24
+
 int main() {
     string sen;
     getline(cin, sen);
@@ -13,6 +14,7 @@ int main() {
         if (startIndex == string::npos) break;
         sen.replace(startIndex, replaceCount, "CCC"); 
     }
+
     cout << sen << endl;
     return 0;
 }
