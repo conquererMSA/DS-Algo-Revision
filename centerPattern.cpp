@@ -3,7 +3,17 @@ using namespace std;
 bool valid(int r, int c, int row, int col) {
     return (r >= 0 && c >= 0 && r < row && c < col);
 }
+/*
+output for 7 7
+#######
+###*###
+#######
+#*#X#*#
+#######
+###*###
+#######
 
+*/
 int main() {
     int row, col;
     cin >> row >> col;
