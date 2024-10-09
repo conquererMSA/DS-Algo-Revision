@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+//input:amarXXXsonar banXXXgla desXXXamar bizoyXXX24
+//output: amarCCCsonar banCCCgla desCCCamar bizoyCCC24
 int main() {
     string sen;
     getline(cin, sen);
