@@ -89,10 +89,16 @@ void levelOrderTreePrint(BTreeNode* root) {
     }
     return;
 }
-
+void outerRightOfBTreePrint(BTreeNode* root){
+    if(root==NULL) return;
+    cout<<root->val<<" "; //staright
+    outerRightOfBTreePrint(root->right);
+    cout<<root->val<<" "; //reverse
+}
 int main() {
     BTreeNode* root = levelOrderTreeInput();
     int deepestNodeSum = deepestLeavesNodeSum(root);
-    cout << deepestNodeSum << endl;
+    // cout << deepestNodeSum << endl;
+    outerRightOfBTreePrint(root);
     return 0;
 }
