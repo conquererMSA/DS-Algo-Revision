@@ -1,1 +1,1 @@
-4 2
+The Binary Tree does not have left or right subtree
