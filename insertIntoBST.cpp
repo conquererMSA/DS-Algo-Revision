@@ -228,8 +228,13 @@ int main() {
     // int searchingValue; cin>>searchingValue;
     // if(searchingInBST(root, searchingValue)) cout<<"YES"<<endl;
     // else cout<<"NO"<<endl;
+    /*
+    10 8 9 -1 -1 6 7 -1 -1 -1 -1
+    insertValue: 3
+    output: 10 8 9 3 6 7, 3 hocce insert value
+    */
     int insertValue; cin>>insertValue;
-    insertIntoBST(root, insertValue); //seshe insert hoy...
+    insertIntoBST(root, insertValue); //puru tree er seshe noy subtree er sheshe insert hoy...
     levelOrderTreePrint(root);
     return 0;
 }
