@@ -229,7 +229,7 @@ int main() {
     // if(searchingInBST(root, searchingValue)) cout<<"YES"<<endl;
     // else cout<<"NO"<<endl;
     int insertValue; cin>>insertValue;
-    insertIntoBST(root, insertValue);
+    insertIntoBST(root, insertValue); //seshe insert hoy...
     levelOrderTreePrint(root);
     return 0;
 }
