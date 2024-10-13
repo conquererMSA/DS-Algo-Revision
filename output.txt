@@ -1,7 +1,1 @@
-Murobbi 2
-Na 2
-Paa 1
-Po 1
-Poo 2
-Uhhu 2
-na 2
+2 
