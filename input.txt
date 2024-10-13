@@ -1,7 +1,5 @@
-5 5
-a b c d e
-x y z m n
-w r q u t
-q w d a s
-v b d a s
-0 0
+6 4
+0 1
+0 2
+3 4
+3 5
