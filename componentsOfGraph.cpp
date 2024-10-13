@@ -23,14 +23,37 @@ int main() {
         graph[v].push_back(u);
     }
 
-    int numberOfComponent = 0;
+    vector<int> eachComponentNode;
+    memset(visitedNode, false, sizeof(visitedNode));
+
+    // Find all components and store a representative node from each.
     for (int i = 0; i < n; i++) {
         if (!visitedNode[i]) {
+            eachComponentNode.push_back(i);
             componentCountByDFS(i);
-            numberOfComponent++;
         }
     }
 
-    cout << numberOfComponent << endl;
+    // If there are multiple components, connect them by adding edges.
+    for (int i = 0; i < eachComponentNode.size() - 1; i++) {
+        int u = eachComponentNode[i];
+        int v = eachComponentNode[i + 1];
+        graph[u].push_back(v);
+        graph[v].push_back(u);
+    }
+
+    // Reset visited array to count the number of connected components again.
+    memset(visitedNode, false, sizeof(visitedNode));
+    int numberOfComponents = 0;
+
+    // Count the number of components after connecting.
+    for (int i = 0; i < n; i++) {
+        if (!visitedNode[i]) {
+            componentCountByDFS(i);
+            numberOfComponents++;
+        }
+    }
+
+    cout << numberOfComponents << endl;
     return 0;
 }
