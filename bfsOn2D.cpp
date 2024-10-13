@@ -40,5 +40,7 @@ int main(){
     int sourceRow, sourceCol;
     cin >> sourceRow >> sourceCol;
     bfsOn2DGrid(sourceRow, sourceCol);
+    if(visitedNode[3][4]) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
     return 0;
 }
