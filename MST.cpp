@@ -7,6 +7,8 @@ cost diye edgeList ke sort korte hobe.
 check korte hobe edge er node gulu ekoi group er kina...
 
 */
+#include<bits/stdc++.h>
+using namespace std;
 class Edge{
     public:
     int u,v,w;
