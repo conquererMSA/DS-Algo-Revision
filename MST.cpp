@@ -5,81 +5,84 @@ MST graph er sob gulu node ke less cost edge dara interconnect kore, graph er to
 
 cost diye edgeList ke sort korte hobe.
 check korte hobe edge er node gulu ekoi group er kina...
-
+***MST n-1 bar cole
 */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-class Edge{
-    public:
-    int u,v,w;
-    Edge(int w, int u, int v){
-        this->u=u;
-        this->v=v;
-        this->w=w;
-    }
+
+class Edge {
+public:
+    int u, v, w;
+    Edge(int u, int v, int w) : u(u), v(v), w(w) {}
 };
 
-int parent[100];
-int groupSize[100];
+int parent[100], groupSize[100];
 
-void dsuInit(int nn){
-    for(int i=0; i<nn; i++){
-        parent[i] = -1;
+void dsuInit(int n) {
+    for (int i = 0; i < n; i++) {
+        parent[i] = i;  // Initially, each node is its own parent
         groupSize[i] = 1;
     }
 }
 
-int dsuLeaderFinding(int node){
-    if(parent[node] == -1) return node;
-    return parent[node] = dsuLeaderFinding(parent[node]); // Path compression
+int dsuFind(int node) {
+    if (parent[node] != node) {
+        parent[node] = dsuFind(parent[node]);  // Path compression
+    }
+    return parent[node];
 }
 
-void dsuUnionBySize(int u, int v){
-    int leaderOfu = dsuLeaderFinding(u);
-    int leaderOfv = dsuLeaderFinding(v);
-    if(leaderOfu != leaderOfv){
-        if(groupSize[leaderOfu] > groupSize[leaderOfv]){
-            parent[leaderOfv] = leaderOfu;
-            groupSize[leaderOfu] += groupSize[leaderOfv];
+void dsuUnion(int u, int v) {
+    int leaderU = dsuFind(u);
+    int leaderV = dsuFind(v);
+    if (leaderU != leaderV) {
+        // Union by size: attach the smaller tree to the larger tree
+        if (groupSize[leaderU] > groupSize[leaderV]) {
+            parent[leaderV] = leaderU;
+            groupSize[leaderU] += groupSize[leaderV];
         } else {
-            parent[leaderOfu] = leaderOfv;
-            groupSize[leaderOfv] += groupSize[leaderOfu];
+            parent[leaderU] = leaderV;
+            groupSize[leaderV] += groupSize[leaderU];
         }
     }
 }
 
-int main(){
+int main() {
     int n, e;
     cin >> n >> e;
-    dsuInit(n);
-    vector<Edge> edgeList;
-    
-    while(e--){
-        int u,v,w;
+
+    vector<Edge> edges;
+    for (int i = 0; i < e; i++) {
+        int u, v, w;
         cin >> u >> v >> w;
-        edgeList.push_back(Edge(w, u, v));
+        edges.emplace_back(u, v, w);
     }
-    
-    // Sorting the edges by their weights
-    sort(edgeList.begin(), edgeList.end(), [](Edge a, Edge b){
+
+    // Sort edges by their weights in ascending order
+    sort(edges.begin(), edges.end(), [](const Edge &a, const Edge &b) {
         return a.w < b.w;
     });
 
+    dsuInit(n);
     int minimumConnectionCost = 0;
+    int edgesUsed = 0;
 
-    for(Edge ed : edgeList){
-        int leaderOfU = dsuLeaderFinding(ed.u);
-        int leaderOfV = dsuLeaderFinding(ed.v);
-        //zodi leaderOfU and leaderOfV same hoy tahole ed.u and ed.v ekoi group er. tarmane already tader moddye dsu unnion kora hoyeche.
-        if(leaderOfU != leaderOfV){
-            dsuUnionBySize(ed.u, ed.v);
-            minimumConnectionCost += ed.w;
+    // Iterate through the sorted edges
+    for (const Edge &edge : edges) {
+        if (dsuFind(edge.u) != dsuFind(edge.v)) {
+            dsuUnion(edge.u, edge.v);
+            minimumConnectionCost += edge.w;
+            edgesUsed++;
+            // Early exit if we've used n - 1 edges (which means MST is complete)
+            if (edgesUsed == n - 1) break;
         }
     }
-    
+
+    // Output the minimum cost to connect all nodes
     cout << minimumConnectionCost << endl;
     return 0;
 }
+
 /*
 input
 5 7
