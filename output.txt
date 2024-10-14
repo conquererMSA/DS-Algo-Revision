@@ -3,3 +3,4 @@ node 1 distance from 0 is 3
 node 2 distance from 0 is 1
 node 3 distance from 0 is 8
 node 4 distance from 0 is 11
+1

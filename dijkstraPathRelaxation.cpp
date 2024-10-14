@@ -62,6 +62,8 @@ int main() {
     for (int i = 0; i < n; i++) {
         cout << "node " << i << " distance from " << sourceNode << " is " << dis[i] << endl;
     }
+    //specif nodes shortest distance from source
+    cout<<dis[2]<<endl;
 
     return 0;
 }
