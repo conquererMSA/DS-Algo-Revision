@@ -29,7 +29,7 @@ int dsu_find(int node)
     if (par[node] == -1)
         return node;
     int leader = dsu_find(par[node]);
-    par[node] = leader;
+    par[node] = leader; //path relaxation
     return leader;
 }
 void dsu_union(int node1, int node2)
@@ -39,33 +39,40 @@ void dsu_union(int node1, int node2)
     int leaderB = dsu_find(node2);
     par[leaderA] = leaderB;
 }
+//duti node er level same hole o size same hobe na.
 void dsu_union_by_level(int node1, int node2)
 {
     int leaderA = dsu_find(node1);
     int leaderB = dsu_find(node2);
+    //a er level boro b theke
     if (level[leaderA] > level[leaderB])
     {
         par[leaderB] = leaderA;
     }
+    //b er level boro a theke
     else if (level[leaderB] > level[leaderA])
     {
         par[leaderA] = leaderB;
     }
+    //a and b er level soman
     else
     {
         par[leaderA] = leaderB;
         level[leaderB]++;
     }
 }
+//duti node er level same holeo size same hoy na, chuto othoba ba boro hoy. union korlei size chuto boro hoyei zabe.
 void dsu_union_by_size(int node1, int node2)
 {
     int leaderA = dsu_find(node1);
     int leaderB = dsu_find(node2);
+    //node a er size boro, b er size a theke chuto
     if (group_size[leaderA] > group_size[leaderB])
     {
         par[leaderB] = leaderA;
         group_size[leaderA] += group_size[leaderB];
     }
+    //node b er size boro, a er size b theke chuto
     else
     {
         par[leaderA] = leaderB;
@@ -80,7 +87,7 @@ int main()
     dsu_union_by_level(4, 5);
     dsu_union_by_level(5, 6);
     dsu_union_by_level(1, 4);
-    cout << dsu_find(1) << endl;
-    cout << dsu_find(4) << endl;
+    cout << dsu_find(1) << endl; //1
+    cout << dsu_find(4) << endl; //1
     return 0;
 }
