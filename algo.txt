@@ -23,5 +23,5 @@ up-heapify
 down heapify
 heap-short
 slow and steady
-DSU: union algo and find algo
+DSU: union algo and find algo, mst-kruskals algo.
 */
