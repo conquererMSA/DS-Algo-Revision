@@ -2,7 +2,7 @@
 using namespace std;
 const int N = (1e5) + 5;
 vector<pair<int, int>> graph[N];
-int distance[N]; // distance path relaxation e bar bar update hote pare.
+int dis[N]; // distance path relaxation e bar bar update hote pare.
 
 class PathCompare {
 public:
@@ -14,7 +14,7 @@ public:
 void dijkstraPathRelaxation(int sourceNode) {
     priority_queue<pair<int, int>, vector<pair<int, int>>, PathCompare> pq; // pq e thakbe node and node er relaxed path, tobe relaxed path abar relax hote pare.
     pq.push({sourceNode, 0}); // source node distance 0 hobe, -1 hole path relaxation hobe na.
-    distance[sourceNode] = 0;
+    dis[sourceNode] = 0;
 
     while (!pq.empty()) {
         pair<int, int> parent = pq.top();
@@ -28,9 +28,9 @@ void dijkstraPathRelaxation(int sourceNode) {
             int childCost = child.second;
 
             // Relaxation condition.
-            if (parentCost + childCost < distance[childNode]) {
-                distance[childNode] = childCost + parentCost;
-                pq.push({childNode, distance[childNode]});
+            if (parentCost + childCost < dis[childNode]) {
+                dis[childNode] = childCost + parentCost;
+                pq.push({childNode, dis[childNode]});
             }
         }
     }
@@ -52,7 +52,7 @@ int main() {
 
     // Initialize distance array with infinity.
     for (int i = 0; i < n; i++) {
-        distance[i] = INT_MAX;
+        dis[i] = INT_MAX;
     }
 
     // Run Dijkstra's algorithm from the given source node.
@@ -60,7 +60,7 @@ int main() {
 
     // Output the shortest distance from the source node to all other nodes.
     for (int i = 0; i < n; i++) {
-        cout << "node " << i << " distance from " << sourceNode << " is " << distance[i] << endl;
+        cout << "node " << i << " distance from " << sourceNode << " is " << dis[i] << endl;
     }
 
     return 0;
