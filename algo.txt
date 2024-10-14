@@ -3,9 +3,7 @@ using namespace std;
 /*
  Dijkstra algorithme: 
  Non negative weighted graph e dijkstra algo use kora hoy. Tobe negative weighted graph e o dijkstra algo use kora zay, zodi na graph e negative-cycle thake. Negative Cycle Dijkstra alogo detect korte pare na, infinity loop e cole zay.
-
  Dijkstra algo te dis[] array maintain kora hoy. Protome dis er prottyekti index-value INF thake. Pore path relaxation hole change hoy.
-
  Dijkstra algo ekti queue solution. Ekhane parent-child strategy use kora hoy. vector<pair<childNode, weight>> thake. Queue te ekti pair e parent er child and child er edge cost rakha hoy.
 
 Bellman-Ford:
