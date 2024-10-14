@@ -15,8 +15,8 @@ Cycle detection: N-1 iteration e sob gulu node path relaxed hoye zay. N-1 bar it
 
 
 
-Floyed Warshall Algoritme:
-Negative Weighted graph e floyed warshall algo use kora hoy. Graph er edge cost 2D Grid array te rakha hoy. Floyed warshall algo hocce tinti nested loop er easy solution. Graph e eti negative cycle detect korte pare. Tinti nested loop shesh howyar por zodi 2D Matrix er kuno primary diagonal value minus hoye zay tokhon eti Negative-Cycle detect kore.
+Floyed Warshall Algoritme: all pair shortest path algo
+Negative Weighted graph e floyed warshall algo use kora hoy. Graph er edge cost 2D Grid array te rakha hoy. 2D array te initially sob gulu cell e INT_MAX deya thake. Kintu primary diagonal cell gulu te 0 store korte hoy. Floyed warshall algo hocce tinti nested loop er easy solution. Graph e eti negative cycle detect korte pare. Tinti nested loop shesh howyar por zodi 2D Matrix er kuno primary diagonal value minus hoye zay tokhon eti Negative-Cycle detect kore. 2D array te initially sob gulu cell e INT_MAX deya thake.
 
 more algo:
 up-heapify
