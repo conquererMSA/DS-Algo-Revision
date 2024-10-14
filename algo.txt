@@ -22,5 +22,6 @@ more algo:
 up-heapify
 down heapify
 heap-short
- 
+slow and steady
+
 */
