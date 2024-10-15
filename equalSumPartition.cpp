@@ -45,7 +45,7 @@ int main(){
     // }
     // cout<<cell.first<<" "<<cell.second<<endl;
     //array er sob gulu value use kore s koto vabe create kora possible ta dp[n][s] teke jana jay.
-    if(dp[n][s]) cout<<dp[n][s]<<endl;
+    if(dp[n][s]) cout<<"Possible"<<endl;
     }
     else cout<<"Not Possible"<<endl;
     return 0;
