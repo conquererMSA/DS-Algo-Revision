@@ -27,6 +27,7 @@ int main(){
         }
     }
     vector<int> v;
+    //sob gulu item/value use korle kun kun sum create kora possible ta dp er last row er true cell gulur index nirdesh kore.
     for(int j=0; j<=s; j++){
         if(dp[n][j]==1) v.push_back(j);
     }
